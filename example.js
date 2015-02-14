@@ -3,8 +3,7 @@
 var i18n = require('./i18n');
 var locales = ['en-gb', 'fr'];
 
-i18n.setPath('./locales/');
-i18n.loadLocales(locales);
+i18n.setPath('./locales/').loadLocales(locales);
 
 function translateTitle() {
   console.log(i18n.t('title'));

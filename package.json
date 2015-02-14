@@ -1,6 +1,6 @@
 {
   "name": "node-translate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A translation library for NodeJS that wraps node-polyglot",
   "author": "TheStoneFox",
   "main": "i18n.js",

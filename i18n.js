@@ -12,6 +12,7 @@ I18n = (function() {
 
   I18n.prototype.setPath = function(path) {
     this.localesPath = path;
+    return this;
   };
 
   I18n.prototype.loadLocales = function(locales) {
@@ -24,6 +25,7 @@ I18n = (function() {
         console.log('Cannot load file: ' + this.localesPath + locale);
       }
     }.bind(this));
+    return this;
   };
 
   I18n.prototype.setLocale = function(locale) {
@@ -35,6 +37,7 @@ I18n = (function() {
     catch(error) {
       console.log('Cannot find locale: ' + locale);
     }
+    return this;
   };
 
   I18n.prototype.t = function(key, options) {
