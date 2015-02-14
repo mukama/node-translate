@@ -1,13 +1,20 @@
 # Node Translate
 
-A translation library for NodeJS that wraps node-polyglot
+A translation library for NodeJS that wraps [node-polyglot](https://www.npmjs.com/package/node-polyglot)
 
 ## Installation
 
+To build a local version for use or development:
 ```
 git clone git@github.com:thestonefox/node-translate.git
 cd node-translate
 npm install
+```
+
+Installing as a node module:
+
+```
+npm install node-translate --save
 ```
 
 ## Example
@@ -63,4 +70,18 @@ i18n.t('title');
 The t method is compatible with polyglot so takes an optional second parameter
 for parsing variables into the translation string.
 
-`i18n.t('title', {name: "string"})`
+```
+i18n.t('title', {name: "string"})
+```
+
+Chaining setters is also permitted.
+
+```
+i18n.setPath('./locales/').loadLocales(['en-gb', 'fr']).setLocale('en-gb');
+```
+
+## Known Issues
+
+Does not work with WebPack, due to the dynamic loading of the locale files
+and the path being a variable in the require statement. This causes WebPack
+to error as it cannot parse the require string into the relevant webpack include.

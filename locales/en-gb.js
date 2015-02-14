@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  "title": "Hello, World"
+  "title": "Hello, World",
+  "greeting": "Good day %{name}"
 }
