@@ -25,6 +25,7 @@ I18n = (function() {
         console.log('Cannot load file: ' + this.localesPath + locale);
       }
     }.bind(this));
+    this.setLocale(locales[0]);
     return this;
   };
 
