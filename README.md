@@ -1,4 +1,4 @@
-# Node Translate
+# Node Translate [![Build Status](https://travis-ci.org/thestonefox/node-translate.svg?branch=master)](https://travis-ci.org/thestonefox/node-translate)
 
 A translation library for NodeJS that wraps [node-polyglot](https://www.npmjs.com/package/node-polyglot)
 
@@ -75,3 +75,9 @@ Chaining setters is also permitted.
 ```
 i18n.requireLocales({'de': require('./locales/de')}).setLocale('de');
 ```
+
+## Running Tests
+
+To run the [Jest](https://github.com/facebook/jest) tests just type:
+
+`npm test`

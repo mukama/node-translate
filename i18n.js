@@ -17,12 +17,16 @@ I18n = (function() {
 
   I18n.prototype.setLocale = function(locale) {
     if(!locale) locale = 'en-gb';
+    var message = 'Cannot find locale: ' + locale;
+
+    if (!this.locales[locale]) throw message;
+
     this.polyglot.clear();
     try {
       this.polyglot.extend(this.locales[locale]);
     }
     catch(error) {
-      console.log('Cannot find locale: ' + locale);
+      throw message;
     }
     return this;
   };

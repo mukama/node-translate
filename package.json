@@ -5,7 +5,8 @@
   "author": "TheStoneFox",
   "main": "i18n.js",
   "scripts": {
-    "start": "node example.js"
+    "start": "node example.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,16 @@
     "node-polyglot": "^0.4.1"
   },
   "homepage": "https://github.com/thestonefox/node-translate",
-  "devDependencies": {},
+  "devDependencies": {
+    "jest-cli": "^0.2.2"
+  },
   "keywords": [
     "translate"
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "jest": {
+    "rootDir": "./",
+    "testFileExtensions": ["es6", "js"],
+    "moduleFileExtensions": ["js", "json", "es6"]
+  }
 }
