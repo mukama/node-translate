@@ -39,23 +39,19 @@ Create a new instance of the i18n library.
 var i18n = require('node-translate');
 ```
 
-Set the path where to locate the locale files.
-This is the directory where you store the language translation.
+Require the relevant locale files in a associative array with the key
+being the name of the locale and the value being the output of the
+respective locale file.
 
 ```
-i18n.setPath('./locales/');
+i18n.requireLocales({
+  'en-gb': require('./locales/en-gb'),
+  'fr': require('./locales/fr')
+});
 ```
 
-Load in the appropriate locales, each locale entry must match the filename
-of the locale file in the locales directory (specified above).
-
-e.g. en-gb would reference a file located at `./locales/en-gb.js`
-
-```
-i18n.loadLocales(['en-gb']);
-```
-
-Set the initial locale to use by providing the locale name.
+Set the initial locale to use by providing the locale name. The first
+specified required locale is used as the current locale by default.
 
 ```
 i18n.setLocale('en-gb');
@@ -77,11 +73,5 @@ i18n.t('title', {name: "string"})
 Chaining setters is also permitted.
 
 ```
-i18n.setPath('./locales/').loadLocales(['en-gb', 'fr']).setLocale('en-gb');
+i18n.requireLocales({'de': require('./locales/de')}).setLocale('de');
 ```
-
-## Known Issues
-
-Does not work with WebPack, due to the dynamic loading of the locale files
-and the path being a variable in the require statement. This causes WebPack
-to error as it cannot parse the require string into the relevant webpack include.

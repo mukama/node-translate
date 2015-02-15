@@ -1,9 +1,10 @@
 'use strict';
-
 var i18n = require('./i18n');
-var locales = ['en-gb', 'fr'];
 
-i18n.setPath('./locales/').loadLocales(locales);
+i18n.requireLocales({
+  'en-gb': require('./locales/en-gb'),
+  'fr': require('./locales/fr')
+});
 
 function translateTitle() {
   console.log(i18n.t('title'));
@@ -25,7 +26,7 @@ translateGreeting("Peter");
 console.log("*****************");
 console.log("Translate to French");
 
-i18n.setLocale(locales[1]);
+i18n.setLocale('fr');
 translateTitle();
 translateGreeting("Pierre");
 

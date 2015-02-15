@@ -6,28 +6,14 @@ Polyglot = require('node-polyglot');
 I18n = (function() {
   function I18n() {
     this.polyglot = new Polyglot();
-    this.localesPath = '';
     this.locales = {};
   }
 
-  I18n.prototype.setPath = function(path) {
-    this.localesPath = path;
+  I18n.prototype.requireLocales = function(locales) {
+    this.locales = locales;
+    this.setLocale(Object.keys(locales)[0]);
     return this;
-  };
-
-  I18n.prototype.loadLocales = function(locales) {
-    if(!locales || locales.length === 0) locales = ['en-gb'];
-    locales.forEach(function(locale) {
-      try {
-        this.locales[locale] = require(this.localesPath + locale);
-      }
-      catch(error) {
-        console.log('Cannot load file: ' + this.localesPath + locale);
-      }
-    }.bind(this));
-    this.setLocale(locales[0]);
-    return this;
-  };
+  }
 
   I18n.prototype.setLocale = function(locale) {
     if(!locale) locale = 'en-gb';
